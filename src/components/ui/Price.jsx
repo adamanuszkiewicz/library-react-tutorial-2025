@@ -1,9 +1,10 @@
 import React from "react";
+import Book from "./Book";
 
-const Price = ({ salePrice, originalPrice }) => {
-  return (
-    <div className="book__price">
-      {salePrice ? (
+  const Price = ({salePrice, originalPrice}) => {
+    return (
+      <div className="book__price">
+      {Book.salePrice ? (
         <>
           <span className="book__price--normal">
             ${originalPrice.toFixed(2)}

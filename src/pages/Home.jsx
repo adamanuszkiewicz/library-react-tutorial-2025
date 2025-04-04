@@ -12,7 +12,7 @@ const Home = () => {
       <Highlights />
       <Featured />
       <Discounted />
-      <Explore />
+      <Explore /> 
     </>
   );
 }

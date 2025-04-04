@@ -1,24 +1,21 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import Book from "../components/ui/Book";
-import Price from "../components/ui/Price";
 import Rating from "../components/ui/Rating";
+import Price from "../components/ui/Price";
+import Book from "../components/ui/Book";
 
 const BookInfo = ({ books, addToCart, cart }) => {
   const { id } = useParams();
   const book = books.find((book) => +book.id === +id);
-  const [added, setAdded] = useState(false)
 
   function addBookToCart(book) {
-    setAdded(true);
     addToCart(book);
   }
 
-  function bookInCart() { 
-    return cart && cart.find(book => +book.id === +id);
+  function bookInCart() {
+    return cart.find(book => book.id === +id);
   }
-
 
   return (
     <div id="books__body">
@@ -50,20 +47,22 @@ const BookInfo = ({ books, addToCart, cart }) => {
                   <h3 className="book__summary--title">Summary</h3>
                   <p className="book__summary--para">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Fuga libero illum quae voluptatem corporis doloribus
-                    laboriosam? Eos sunt dolore nam dignissimos libero, a
-                    dolorum beatae ducimus laborum delectus quos assumenda.
+                    Doloribus temporibus praesentium blanditiis consequatur
+                    reiciendis animi in, dolor tempore officia accusantium!
+                    Repellat ducimus labore quaerat reprehenderit magni numquam
+                    quod eos sapiente.
                   </p>
                   <p className="book__summary--para">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Fuga libero illum quae voluptatem corporis doloribus
-                    laboriosam? Eos sunt dolore nam dignissimos libero, a
-                    dolorum beatae ducimus laborum delectus quos assumenda.
+                    Doloribus temporibus praesentium blanditiis consequatur
+                    reiciendis animi in, dolor tempore officia accusantium!
+                    Repellat ducimus labore quaerat reprehenderit magni numquam
+                    quod eos sapiente.
                   </p>
                 </div>
                 {bookInCart() ? (
-                  <Link to={`/cart/${book.id}`} className="book__link">
-                  <button className="btn">Checkout</button>
+                  <Link to={`/cart`} className="book__link">
+                    <button className="btn">Checkout</button>
                   </Link>
                 ) : (
                   <button className="btn" onClick={() => addBookToCart(book)}>
@@ -74,11 +73,12 @@ const BookInfo = ({ books, addToCart, cart }) => {
             </div>
           </div>
         </div>
-
         <div className="books__container">
           <div className="row">
             <div className="book__selected--top">
-              <h2 className="book__selected--title--top">Recomended Books</h2>
+              <h2 className="book__selected--title--top">
+                Recomended Books
+              </h2>
             </div>
             <div className="books">
               {books
